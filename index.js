@@ -63,7 +63,7 @@ document.querySelectorAll('button')[0].addEventListener("click",()=>{
 
     document.querySelectorAll("p")[0].innerHTML = lives.join("");
 
-    document.addEventListener("keyup",(event)=>{
+    document.addEventListener("keydown",(event)=>{
         letter = (event.key).toUpperCase();
         console.log(letter)
         console.log(lives)

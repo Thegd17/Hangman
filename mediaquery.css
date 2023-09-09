@@ -1,0 +1,27 @@
+@media (width < 700px) {
+    * {
+        font-family: monospace;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    body {
+        height: 100vh;
+        width: 100%;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .container h2 {
+        font-size: 2rem;
+        margin: 100px 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

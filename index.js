@@ -32,7 +32,7 @@ function random_index() {
 document.querySelectorAll('button')[0].addEventListener("click",()=>{
     
     var word = (words[random_index()]).toUpperCase();
-    console.log(word)
+    // console.log(word)
     var word_letters = [];
     var len = word.length;
     const word_list = [];
@@ -60,7 +60,7 @@ document.querySelectorAll('button')[0].addEventListener("click",()=>{
     for (var i = 0;i<len;i++) {
         current_word.push("-")
     }
-    console.log(current_word.join(""));
+    // console.log(current_word.join(""));
 
     guessed_word = current_word.join("");
     document.querySelector(".word").innerHTML = guessed_word;
@@ -68,7 +68,7 @@ document.querySelectorAll('button')[0].addEventListener("click",()=>{
     document.querySelectorAll("p")[0].innerHTML = lives.join("");
 
     document.addEventListener("keyup",(event)=>{
-        console.log(lives.length)
+        // console.log(lives.length)
         letter = (event.key).toUpperCase();
         if (word_letters.includes(letter)) {
             position = word_letters.indexOf(letter);
@@ -78,7 +78,7 @@ document.querySelectorAll('button')[0].addEventListener("click",()=>{
             word_letters[position] = '-';
             len--;
             if (len===0) {
-                console.log("you Guess the word")
+                // console.log("you Guess the word")
                 document.querySelector("P").innerHTML = "YAY! You Guessed The Word";
                 document.querySelector(".word").innerHTML = word;
                 document.querySelector(".word").classList.add("guessed");

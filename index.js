@@ -30,8 +30,19 @@ function random_index() {
 }
 
 document.querySelectorAll('button')[0].addEventListener("click",()=>{
+    
+    var word = (words[random_index()]).toUpperCase();
+    console.log(word)
+    var word_letters = [];
+    var len = word.length;
+    const word_list = [];
+    const current_word = [];
+    var lives = ["❤️","❤️","❤️","❤️","❤️","❤️"];
+   
+
     var inputField = document.getElementById("inputField");
     inputField.focus();
+
     document.querySelectorAll("button")[0].innerHTML = "Start"
     document.querySelector(".word").classList.remove("guessed");
     document.querySelector(".word").classList.remove("dead");
@@ -41,13 +52,6 @@ document.querySelectorAll('button')[0].addEventListener("click",()=>{
     setTimeout(() => {
         document.querySelectorAll("button")[0].classList.remove("pressed");
     },75)
-    var word = (words[random_index()]).toUpperCase();
-    console.log(word)
-    var word_letters = [];
-    var len = word.length;
-    const word_list = [];
-    const current_word = [];
-    var lives = ["❤️","❤️","❤️","❤️","❤️","❤️"];
 
     for(var i=0;i<len;i++) {
         word_letters.push(word.charAt(i));
@@ -63,10 +67,9 @@ document.querySelectorAll('button')[0].addEventListener("click",()=>{
 
     document.querySelectorAll("p")[0].innerHTML = lives.join("");
 
-    document.addEventListener("keydown",(event)=>{
+    document.addEventListener("keyup",(event)=>{
+        console.log(lives.length)
         letter = (event.key).toUpperCase();
-        console.log(letter)
-        console.log(lives)
         if (word_letters.includes(letter)) {
             position = word_letters.indexOf(letter);
             current_word[position] = letter;
@@ -80,7 +83,10 @@ document.querySelectorAll('button')[0].addEventListener("click",()=>{
                 document.querySelector(".word").innerHTML = word;
                 document.querySelector(".word").classList.add("guessed");
                 document.querySelectorAll("p")[0].classList.add("big");
-                document.querySelectorAll("button")[0].innerHTML = "Play again";s
+                document.querySelectorAll("button")[0].innerHTML = "Starting Again In 5 Seconds...";
+                setTimeout(() => {
+                    location.reload()
+                },7000);
             }
         } else {
             lives.pop(1);
@@ -89,9 +95,13 @@ document.querySelectorAll('button')[0].addEventListener("click",()=>{
                 
                 document.querySelector(".word").innerHTML = "You Died!";
                 document.querySelector(".word").classList.add("dead");
-                document.querySelectorAll("button")[0].innerHTML = "Play again";
-                console.log("exit")
-                return 0; 
+                document.querySelectorAll("button")[0].innerHTML = "Starting Again In 5 Seconds...";
+                document.querySelector("P").innerHTML = "Word Was "+word;
+                
+                setTimeout(() => {
+                    location.reload()
+                },3000);
+               
             }
         }
     })   

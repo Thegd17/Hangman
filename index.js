@@ -84,7 +84,9 @@ document.querySelectorAll('button')[0].addEventListener("click",()=>{
                 document.querySelector(".word").classList.add("guessed");
                 document.querySelectorAll("p")[0].classList.add("big");
                 document.querySelectorAll("button")[0].innerHTML = "Starting Again In 5 Seconds...";
+                document.querySelectorAll("button")[0].disabled = true;
                 setTimeout(() => {
+                    document.querySelectorAll("button")[0].disabled = false;
                     location.reload()
                 },7000);
             }
@@ -97,8 +99,10 @@ document.querySelectorAll('button')[0].addEventListener("click",()=>{
                 document.querySelector(".word").classList.add("dead");
                 document.querySelectorAll("button")[0].innerHTML = "Starting Again In 5 Seconds...";
                 document.querySelector("P").innerHTML = "Word Was "+word;
+                document.querySelectorAll("button")[0].disabled = true;
                 
                 setTimeout(() => {
+                    document.querySelectorAll("button")[0].disabled = false;
                     location.reload()
                 },3000);
                

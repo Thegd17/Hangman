@@ -83,12 +83,12 @@ document.querySelectorAll('button')[0].addEventListener("click",()=>{
                 document.querySelector(".word").innerHTML = word;
                 document.querySelector(".word").classList.add("guessed");
                 document.querySelectorAll("p")[0].classList.add("big");
-                document.querySelectorAll("button")[0].innerHTML = "Starting Again In 5 Seconds...";
+                document.querySelectorAll("button")[0].innerHTML = "Starting Again In 3 Seconds...";
                 document.querySelectorAll("button")[0].disabled = true;
                 setTimeout(() => {
                     document.querySelectorAll("button")[0].disabled = false;
                     location.reload()
-                },7000);
+                },3000);
             }
         } else {
             lives.pop(1);
@@ -97,7 +97,7 @@ document.querySelectorAll('button')[0].addEventListener("click",()=>{
                 
                 document.querySelector(".word").innerHTML = "You Died!";
                 document.querySelector(".word").classList.add("dead");
-                document.querySelectorAll("button")[0].innerHTML = "Starting Again In 5 Seconds...";
+                document.querySelectorAll("button")[0].innerHTML = "Starting Again In 3 Seconds...";
                 document.querySelector("P").innerHTML = "Word Was "+word;
                 document.querySelectorAll("button")[0].disabled = true;
                 
